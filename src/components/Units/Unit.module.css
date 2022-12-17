@@ -1,0 +1,36 @@
+.root {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.unit {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 14px;
+    margin-top: 15px;
+    flex-direction: column;
+}
+
+.unitContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.unitName {
+    padding: 0px 15px;
+    font-size: 24px;
+}
+
+.unitBtns {
+    display: flex;
+}
+
+.img {
+    width: 30px;
+    height: 30px;
+}

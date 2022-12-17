@@ -1,0 +1,77 @@
+.shopScroll {
+    display: block;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 350px;
+    height: 150px;
+    border-right: rgb(255, 215, 0) 6px solid;
+    border-top: rgb(255, 215, 0) 6px solid;
+    border-radius: 0px 15px 5px 0px;
+    background-color: rgb(6, 6, 6);
+    border-color: rgb(15, 15, 15);
+    z-index: 500;
+}
+
+.shopScroll.active {
+    display: none;
+}
+
+.unitScroll {
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 0px 15px 5px 0px;
+    color: rgb(205,207,183);
+    font-size: 24px;
+}
+
+.unitProfile {
+    display: block;
+    height: 110px;
+    width: 350px;
+    background-color: green;
+    overflow: hidden;
+}
+
+.sliderLineProfile {
+    display: flex;
+    left: 0;
+    transition: all ease 1s;
+}
+
+.buttonScroll {
+    display: flex;
+    height: 100%;
+    width: 40px;
+    background-color: rgb(6, 6, 6);
+    border-color: transparent;
+    border-radius: 0px 15px 5px 0px;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    color: rgb(205,207,183);
+}
+
+.unitTextScroll {
+    display: inline-block;
+    align-items: center;
+    height: 100%;
+    margin:0 auto;
+    align-items: center;
+    vertical-align: middle;
+
+}
+
+#unitProfileImg {
+    height: 100px;
+    width: auto;
+}
+
+.sliderNext {
+
+}
+
+.slider-prev {
+
+}

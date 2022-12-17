@@ -1,0 +1,75 @@
+.infoPanel {
+    width: 100%;
+    height: 26px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    color:white;
+    z-index: 500;
+    display: flex;
+    align-content: center;
+    padding: 2px 32px 2px 16px;
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(to bottom left, #f83600, #f9d423);
+    border-image-slice: 1;
+}
+
+ul.hr li img {
+    height: 16px;
+    width: auto;
+    margin-right: 2px;
+}
+
+ul.hr {
+    width: 100%;
+    list-style-type: none;
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 0; /* Значение полей */
+}
+
+ul.hr li {
+    height: 100%;
+    display: inline-block;
+    margin-right: 5px; /* Отступ слева */
+    padding: 3px; /* Поля вокруг текста */
+    text-align: center;
+}
+
+ul.hr li:nth-last-child(1), ul.hr li:nth-last-child(2){
+    height: 100%;
+    display: inline-block;
+    padding-right: 3px;
+    text-align: center;
+    float: right
+}
+
+ul.hr li:nth-last-child(2){
+    height: 100%;
+    display: inline-block;
+    padding-right: 32px;
+    text-align: center;
+    float: right
+}
+
+#info-gold {
+    color: gold;
+}
+
+#info-food {
+    color: rgb(250,102,90);
+}
+
+#info-iron {
+    color: rgb(115,133,149);
+}
+
+#info-stone {
+    color: rgb(173,165,135);
+}
+
+#info-wood {
+    color: rgb(150, 111, 51);
+}
+
+

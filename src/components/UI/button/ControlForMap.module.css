@@ -1,0 +1,48 @@
+#button-img-up {
+    width: 266px;
+    height: 45px;
+}
+
+#btn-up {
+    top: calc(9% - 45px);
+    left: calc(50% - 133px);
+}
+
+#button-img-down {
+    width: 266px;
+    height: 45px;
+}
+
+#btn-down {
+    left: calc(50% - 133px);
+    bottom: calc(5% - 45px);
+}
+
+#button-img-left {
+    width: 45px;
+    height: 266px;
+}
+
+#btn-left {
+    top: calc(50% - 133px);
+    left: calc(4% - 45px);
+}
+
+#button-img-right {
+    width: 45px;
+    height: 266px;
+}
+
+#btn-right {
+    top: calc(50% - 133px);
+    right: calc(4% - 45px);
+}
+
+.button {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    background-color: Transparent;
+    position: fixed;
+    border-width: 0px;
+}
