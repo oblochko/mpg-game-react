@@ -2,8 +2,10 @@ import React, {FC, useEffect, useState} from 'react';
 import {Unit} from "../../models/Unit";
 import {Action} from "../../models/Action";
 import classes from "./Action.module.css";
-import nn from "../../assets/ava/nn.jpg";
 import {ActionEnum} from "../../models/ActionEnum";
+import collision from "../../assets/action/collision2.png";
+import cutting from "../../assets/action/cutting2.png";
+import maneuvers from "../../assets/action/maneuvers2.png"
 
 interface ActionProps {
     action: Action;
@@ -18,23 +20,23 @@ const ActionItem: FC<ActionProps> = ({action}) => {
 
     function getManeuversClassName() : string {
         if(action.typeActionName === ActionEnum.MANEUVERS)
-            return [classes.btn, classes.active].join(' ');
+            return [classes.actionItem, classes.active].join(' ');
         else
-            return classes.btn;
+            return classes.actionItem;
     }
 
     function getCollisionClassName() : string {
         if(action.typeActionName === ActionEnum.COLLISION)
-            return [classes.btn, classes.active].join(' ');
+            return [classes.actionItem, classes.active].join(' ');
         else
-            return classes.btn;
+            return classes.actionItem;
     }
 
     function getCuttingClassName() : string {
         if(action.typeActionName === ActionEnum.CUTTING)
-            return [classes.btn, classes.active].join(' ');
+            return [classes.actionItem, classes.active].join(' ');
         else
-            return classes.btn;
+            return classes.actionItem;
     }
 
     function clickManeuversBtn() {
@@ -66,14 +68,17 @@ const ActionItem: FC<ActionProps> = ({action}) => {
 
     return (
         <div className={classes.action}>
-            <div className={classes.actionContent}>
-                <strong>{action.name}</strong>
-                <div className={classes.actionDamage}>{'\u2014'} {action.damage} ед.</div>
+            <div className={getManeuversClassName()}>
+                <img src={maneuvers}/>
+                <button onClick={clickManeuversBtn}>Манёвры</button>
             </div>
-            <div className={classes.actionBtns}>
-                <button className={getManeuversClassName()} onClick={clickManeuversBtn}>Манёвры</button>
-                <button className={getCollisionClassName()} onClick={clickCollisionCBtn}>Сшибка</button>
-                <button className={getCuttingClassName()} onClick={clickCuttingCBtn}>Рубка</button>
+            <div className={getCollisionClassName()}>
+                <img src={collision}/>
+                <button onClick={clickCollisionCBtn}>Натиск</button>
+            </div>
+            <div className={getCuttingClassName()}>
+                <img src={cutting}/>
+                <button onClick={clickCuttingCBtn}>Резня</button>
             </div>
         </div>
     );
