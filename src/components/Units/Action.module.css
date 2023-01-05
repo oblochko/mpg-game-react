@@ -5,10 +5,43 @@
 .action {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 5px;
-    margin-top: 5px;
-    margin-left: 15px;
+    justify-content: space-around;
+    width: 100%;
+    height: 40px;
+}
+
+.actionItem {
+    display: flex;
+    width: 170px;
+    height: 40px;
+}
+
+.actionItem img {
+    width: 34px;
+    height: 34px;
+    padding: 3px;
+    margin-right: 3px;
+}
+
+.actionItem button {
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    height: 42px;
+    width: 100%;
+    background-color: transparent;
+    border: 0px solid black;
+    color: aliceblue;
+}
+
+.actionItem.active img {
+    border: 1px solid aliceblue;
+    border-radius: 30px 5px 5px 30px;
+}
+
+.actionItem.active button {
+    border: 1px solid aliceblue;
+    border-radius: 5px;
 }
 
 .actionContent {
@@ -25,18 +58,20 @@
     display: flex;
 }
 
-.btn {
+/*.btn {
     color: black;
     font-size: 20px;
-    padding: 10px 10px;
-    border-radius: 20px;
-    margin: 0 5px;
     cursor: pointer;
-    width: 110px;
-}
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+    border: 0px solid black;
+    color: aliceblue;
+}*/
 
-.active {
-    background-color: rgb(0, 153, 0);
-}
+/*.active {
+    !*background-color: rgb(0, 153, 0);*!
+    border: 1px solid aliceblue;
+}*/
 
 

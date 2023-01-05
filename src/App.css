@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Triod';
+  src: local('Triod'), url(./font/Triod/TriodPostnaja.ttf) format('truetype');
+}
+
 html {
   --w: 23;
   --h: 23;
@@ -6,6 +11,7 @@ html {
 * {
   margin: 0;
   padding: 0;
+  font-family: Triod;
 }
 
 .app {

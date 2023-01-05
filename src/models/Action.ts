@@ -13,4 +13,7 @@ export class Action {
         this.typeActionName = typeActionName;
         this.modified = false;
     }
+
+
+
 }
