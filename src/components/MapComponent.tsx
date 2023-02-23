@@ -5,6 +5,7 @@ import {Board} from "../models/Board";
 import CellComponent from "./CellComponent";
 import {MoveBoard} from "../models/MoveBoard";
 import {Army} from "../models/Army";
+import {useKeycloak} from "@react-keycloak/web";
 
 interface BoardProps {
     board: Board;
@@ -13,20 +14,23 @@ interface BoardProps {
 }
 
 const MapComponent: FC<BoardProps> = ({board, setBoard, setArmy}) => {
+    const { keycloak, initialized } = useKeycloak();
 
     const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
 
-    function click(cell: Cell) {
-        if(selectedCell && (selectedCell === cell || cell.available === true) ) {
-            if(cell.available)
-                selectedCell.moveArmy(cell)
+    async function click(cell: Cell) {
+        if (selectedCell && (selectedCell === cell || cell.available === true)) {
+            if (cell.available && keycloak.authenticated) {
+                await selectedCell.moveArmy(cell, keycloak.token)
+            } else {
+                alert('Для перемещения армий необходимо авторизироваться')
+            }
             board.removeAvailable();
             setSelectedCell(null);
             setArmy(null);
-        }
-        else {
+        } else {
             board.removeAvailable();
-            if(cell.army) {
+            if (cell.army) {
                 board.selectСellsToMove(cell);
                 setArmy(cell.army)
             }

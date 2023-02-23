@@ -7,8 +7,11 @@ import stone from '../assets/resource/stone.png'
 import wood from '../assets/resource/wood.png'
 
 import classes from "./PanelComponent.module.css";
+import {useKeycloak} from "@react-keycloak/web";
 
 const PanelComponent = () => {
+    const { keycloak, initialized } = useKeycloak();
+
     return (
             <div className={classes.infoPanel}>
                 <ul className={classes.hr}>
@@ -19,6 +22,19 @@ const PanelComponent = () => {
                     <li id={classes["info-wood"]}><img src={wood}/>1 (+3)</li>
                     <li> Ход: 0, 400г.до.н.э.</li>
                     <li>Уведомление</li>
+                    {!keycloak.authenticated && (
+                        <li onClick={() => keycloak.login()}>
+                            Войти
+                        </li>
+                    )}
+                    {!!keycloak.authenticated && (
+                        <li onClick={() => {
+                            keycloak.logout()
+                        }
+                        }>
+                            Выйти ({keycloak.tokenParsed!['state-ru']})
+                        </li>
+                    )}
                 </ul>
             </div>
     );

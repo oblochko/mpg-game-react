@@ -7,15 +7,22 @@ import up from "../assets/button/vverkh.png";
 import down from "../assets/button/vniz.png";
 import {Cell} from "../models/Cell";
 import {MoveBoard} from "../models/MoveBoard";
+import zkh from "../assets/button/zkh.png";
+import CompleteButton from "./UI/button/CompleteButton";
+import classesComplete from './UI/button/CompleteButton.module.css'
+import ArmyApi from "../api/ArmyApi";
+import {useKeycloak} from "@react-keycloak/web";
 
 
 interface CellofControlInt {
     moveBoard: MoveBoard;
     setMoveBoard: (moveBoard: MoveBoard) => void;
     bias: number;
-}
-const CellOfControl: FC<CellofControlInt> = ({moveBoard, setMoveBoard, bias}) => {
 
+    onComplete: () => void;
+}
+const CellOfControl: FC<CellofControlInt> = ({moveBoard, setMoveBoard, bias, onComplete}) => {
+    const { keycloak, initialized } = useKeycloak();
     function rightHandler(event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
         let frame = document.getElementById('frame');
@@ -51,6 +58,16 @@ const CellOfControl: FC<CellofControlInt> = ({moveBoard, setMoveBoard, bias}) =>
             moveBoard.down(frame.offsetHeight, map.offsetHeight, bias);
             setMoveBoard(moveBoard);
             rollMap();
+        }
+    }
+
+    async function completeStep(event: React.MouseEvent<HTMLButtonElement>) {
+        event.preventDefault();
+        if (keycloak.authenticated) {
+            await ArmyApi.completeTheMove(keycloak.token);
+            await onComplete();
+        } else {
+            alert('Для завершения хода необходима авторизироваться')
         }
     }
 
@@ -113,6 +130,8 @@ const CellOfControl: FC<CellofControlInt> = ({moveBoard, setMoveBoard, bias}) =>
                 urlImg={down}
                 onClick={downHandler}
             />
+
+            <CompleteButton urlImg={zkh} idButton={classesComplete["button-step"]} onClick={completeStep}/>
         </div>
     );
 };

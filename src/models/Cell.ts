@@ -1,5 +1,7 @@
 import {Board} from "./Board";
 import {Army} from "./Army";
+import ArmyApi from "../api/ArmyApi";
+import {ArmyMove} from "./AmyMove";
 
 export class Cell {
     x: number;
@@ -22,10 +24,16 @@ export class Cell {
         this.army.cell = this;
     }
 
-    moveArmy(target: Cell) {
+    async moveArmy(target: Cell, token: string | undefined) {
         if(this.army && this.army?.canMove(target)) {
-            target.setArmy(this.army);
-            this.army = null;
+            let armyMove = new ArmyMove(this.army.id, target.id);
+            return ArmyApi.armyMove(armyMove, token).then(r => {
+                target.setArmy(this.army!);
+                this.army = null;
+            })
+            .catch( c => console.log(''))
+            /*target.setArmy(this.army!);
+            this.army = null;*/
         }
     }
 }

@@ -25,10 +25,10 @@ export class Army {
     }
 
     getLogoByNameState(nameState: string) {
-        if(nameState == StateEnum.DASKIA || nameState == StateEnum.TVERDOVTSY) {
+        if(nameState == StateEnum.DASKIA || nameState == StateEnum.TVERDOVTSY || nameState == StateEnum.JARICHI_EN) {
             return armyBlack;
         }
-        if(nameState == StateEnum.LIKONIA || nameState == StateEnum.OBITALICI) {
+        if(nameState == StateEnum.LIKONIA || nameState == StateEnum.OBITALICI || nameState == StateEnum.TVERDOVTSY_EN) {
             return armyRed;
         }
         return armyBlack;

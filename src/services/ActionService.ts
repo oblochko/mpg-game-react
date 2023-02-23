@@ -4,8 +4,8 @@ import {Unit} from "../models/Unit";
 
 export default class ActionService {
 
-    static updateAll(actions: Action[]) {
-        ActionApi.updateAll(actions);
+    static updateAll(actions: Action[], token: string | undefined) {
+        ActionApi.updateAll(actions, token);
     }
 
     static initActions(actions: Action[]) {

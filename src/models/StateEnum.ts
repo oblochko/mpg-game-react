@@ -2,5 +2,7 @@ export enum StateEnum  {
     DASKIA = "DASKIA",
     TVERDOVTSY = "Твердовцы",
     OBITALICI = "Обиталичи",
-    LIKONIA = "LIKONIA"
+    LIKONIA = "LIKONIA",
+    JARICHI_EN = "Jarichi",
+    TVERDOVTSY_EN = "Tverdovtsy",
 }
